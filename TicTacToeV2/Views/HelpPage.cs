@@ -8,35 +8,23 @@ using TicTacToeV2.Controller;
 
 namespace TicTacToeV2.Views
 {
-    class MainMenu
+    class HelpPage
     {
-        public static void MainMenuContent()
+        public static void DisplayHelpMenu ()
         {
-            int selection = 0;
-            int defaultValue = 0;
+            var selection = 0;
+            var defaultValue = 0;
             string userSelection;
-            string menuOption1 = "[1] Start A New Game";
-            string menuOption2 = "[2] Resume Game";
-            string menuOption3 = "[3] Play Tutorial";
-            string menuOption4 = "[4] View Current Game Stats";
-            string menuOption5 = "[5] View Historic Game Stats";
-            string menuOption6 = "[6] Quit";
-            
+
             while (selection == 0)
             {
                 Console.Clear();
-                Console.SetCursorPosition((Console.WindowWidth - menuOption1.Length) / 2, 7);
-                Console.WriteLine(menuOption1);
-                Console.SetCursorPosition((Console.WindowWidth - menuOption2.Length) / 2, 8);
-                Console.WriteLine(menuOption2);
-                Console.SetCursorPosition((Console.WindowWidth - menuOption3.Length) / 2, 9);
-                Console.WriteLine(menuOption3);
-                Console.SetCursorPosition((Console.WindowWidth - menuOption4.Length) / 2, 10);
-                Console.WriteLine(menuOption4);
-                Console.SetCursorPosition((Console.WindowWidth - menuOption5.Length) / 2, 11);
-                Console.WriteLine(menuOption5);
-                Console.SetCursorPosition((Console.WindowWidth - menuOption6.Length) / 2, 12);
-                Console.WriteLine(menuOption6);
+                Console.WriteLine("Please choose a category.");
+                Console.WriteLine("[1] Move Selection");
+                Console.WriteLine("[2] Winning the game");
+                Console.WriteLine("[3] Quitting a game");
+                Console.WriteLine("[4] Saving a game");
+
                 userSelection = Console.ReadLine();
                 var validateUserSelection = int.TryParse(userSelection, out defaultValue);
 
@@ -61,9 +49,9 @@ namespace TicTacToeV2.Views
 
                 if (selection != 0)
                 {
-                    if (selection == 1 || selection < 7)
+                    if (selection == 1 || selection < 5)
                     {
-                        GameController.MainMenuNavigation(selection);
+                        GameController.HelpMenuNavigation(selection);
                     }
                     else
                     {

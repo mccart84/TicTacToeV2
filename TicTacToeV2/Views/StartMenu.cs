@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TicTacToeV2.Controller;
 
 namespace TicTacToeV2.Views
 {
@@ -63,17 +64,7 @@ namespace TicTacToeV2.Views
                 {
                     if (selection == 1 || selection < 3)
                     {
-                        switch (selection)
-                        {
-                            case 1:
-                                MainMenu.MainMenuContent();
-                                break;
-                            case 2:
-                                Environment.Exit(0);
-                                break;
-                            default:
-                                break;
-                        }
+                        GameController.StartMenuNavigation(selection);
                     }
                     else
                     {

@@ -17,17 +17,23 @@ namespace TicTacToeV2.Views
         static char[] arrReset = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         static string quit = "QUIT";
         static int choice;
-        static int player = 1;
+        static int player = 0;
         static string boardSelection = "";                 
         static int flag = 0;
         static int defaultValue = 0;
+        static int moveCount = 0;
 
         public static void NewGame(string player1, string player2, int goesFirst)
         {
             do
             {
-                player = goesFirst;
+                if (player == 0)
+                {
+                    player = goesFirst;
+                }                
                 Console.Clear();
+                Console.WriteLine("Enter 'Help' at any time for a list of options.");
+                Console.WriteLine("");
                 Console.WriteLine("{0}:X and {1}:O", player1, player2);
                 Console.WriteLine("\n");
 
@@ -64,6 +70,10 @@ namespace TicTacToeV2.Views
                     else if (board == quit)
                     {
                         QuitGame();
+                    }
+                    else if (board == "HELP")
+                    {
+                        HelpMenu();
                     }
                     else
                     {
@@ -117,25 +127,25 @@ namespace TicTacToeV2.Views
         {
             string topRow = "     |   |          |   |          |   |   ";
             int boardWidth = topRow.Length;
-            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 2);
-            Console.WriteLine("     A              B              C        ");
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 4);
-            Console.WriteLine("   |   |          |   |          |   |      ");
-            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 5);
-            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[1], arrA[2], arrA[3], arrB[1], arrB[2], arrB[3], arrC[1], arrC[2], arrC[3]);
+            Console.WriteLine("     A              B              C        ");
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 6);
-            Console.WriteLine("___|___|___    ___|___|___    ___|___|___");
+            Console.WriteLine("   |   |          |   |          |   |      ");
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 7);
-            Console.WriteLine("   |   |          |   |          |   |      ");
+            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[1], arrA[2], arrA[3], arrB[1], arrB[2], arrB[3], arrC[1], arrC[2], arrC[3]);
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 8);
-            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[4], arrA[5], arrA[6], arrB[4], arrB[5], arrB[6], arrC[4], arrC[5], arrC[6]);
-            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 9);
             Console.WriteLine("___|___|___    ___|___|___    ___|___|___");
-            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 10);
+            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 9);
             Console.WriteLine("   |   |          |   |          |   |      ");
+            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 10);
+            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[4], arrA[5], arrA[6], arrB[4], arrB[5], arrB[6], arrC[4], arrC[5], arrC[6]);
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 11);
-            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[7], arrA[8], arrA[9], arrB[7], arrB[8], arrB[9], arrC[7], arrC[8], arrC[9]);
+            Console.WriteLine("___|___|___    ___|___|___    ___|___|___");
             Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 12);
+            Console.WriteLine("   |   |          |   |          |   |      ");
+            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 13);
+            Console.WriteLine(" {0} | {1} | {2}      {3} | {4} | {5}      {6} | {7} | {8}", arrA[7], arrA[8], arrA[9], arrB[7], arrB[8], arrB[9], arrC[7], arrC[8], arrC[9]);
+            Console.SetCursorPosition((Console.WindowWidth - boardWidth) / 2, 14);
             Console.WriteLine("   |   |          |   |          |   |      ");
             Console.WriteLine("");
         }
@@ -149,12 +159,14 @@ namespace TicTacToeV2.Views
                     board[choice] = 'O';
                     player++;
                     boardSelection = "";
+                    moveCount++;
                 }
                 else
                 {
                     board[choice] = 'X';
                     player++;
                     boardSelection = "";
+                    moveCount++;
                 }
             }
             else
@@ -171,6 +183,11 @@ namespace TicTacToeV2.Views
             ResetGameBoards();
             player = 1;
             MainMenu.MainMenuContent();
+        }
+
+        public static void HelpMenu()
+        {
+            HelpPage.DisplayHelpMenu();
         }
 
         public static void ResetGameBoards()
