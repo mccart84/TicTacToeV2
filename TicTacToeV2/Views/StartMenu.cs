@@ -16,23 +16,29 @@ namespace TicTacToeV2.Views
             int defaultValue = 0;
             string userSelection;
             string menuOption1 = "[1] Main Menu";
-            string menuOption2 = "[2] Quit";            
+            string menuOption2 = "[2] Quit";
+            string logoTop = "_______ _  ___   _______ _____  ___   _______ _____   ___";
+            string logoLine2 = "\\_   _/| ||  _|  \\_   _/|  _  ||  _|  \\_   _/|  _  | |  _|";
+            string logoLine3 = "  | |  | || |  __  | |  | |_| || |  __  | |  | | | | | |_";
+            string logoLine4 = "  | |  | || | |__| | |  |  _  || | |__| | |  | | | | |  _|";
+            string logoLine5 = "  | |  | || |_     | |  | | | || |_     | |  | |_| | | |_";
+            string logoLine6 = "  |_|  |_||___|    |_|  |_| |_||___|    |_|  |_____| |___|";
 
             while (selection == 0)
             {
                 Console.Clear();
-                Console.SetCursorPosition(12, 6);
-                Console.WriteLine("_______ _  ___   _______ _____  ___   _______ _____   ___");
-                Console.SetCursorPosition(12, 7);
-                Console.WriteLine("\\_   _/| ||  _|  \\_   _/|  _  ||  _|  \\_   _/|  _  | |  _|");
-                Console.SetCursorPosition(12, 8);
-                Console.WriteLine("  | |  | || |  __  | |  | |_| || |  __  | |  | | | | | |_");
-                Console.SetCursorPosition(12, 9);
-                Console.WriteLine("  | |  | || | |__| | |  |  _  || | |__| | |  | | | | |  _|");
-                Console.SetCursorPosition(12, 10);
-                Console.WriteLine("  | |  | || |_     | |  | | | || |_     | |  | |_| | | |_");
-                Console.SetCursorPosition(12, 11);
-                Console.WriteLine("  |_|  |_||___|    |_|  |_| |_||___|    |_|  |_____| |___|");
+                Console.SetCursorPosition((Console.WindowWidth - logoTop.Length)/2, 6);
+                Console.WriteLine(logoTop);
+                Console.SetCursorPosition((Console.WindowWidth - logoLine2.Length) / 2, 7);
+                Console.WriteLine(logoLine2);
+                Console.SetCursorPosition((Console.WindowWidth - logoLine3.Length) / 2, 8);
+                Console.WriteLine(logoLine3);
+                Console.SetCursorPosition((Console.WindowWidth - logoLine4.Length) / 2, 9);
+                Console.WriteLine(logoLine4);
+                Console.SetCursorPosition((Console.WindowWidth - logoLine5.Length) / 2, 10);
+                Console.WriteLine(logoLine5);
+                Console.SetCursorPosition((Console.WindowWidth - logoLine6.Length) / 2, 11);
+                Console.WriteLine(logoLine6);
                 Console.SetCursorPosition((Console.WindowWidth - menuOption1.Length) / 2, 15);
                 Console.WriteLine(menuOption1);
                 Console.SetCursorPosition((Console.WindowWidth - menuOption2.Length) / 2, 16);
