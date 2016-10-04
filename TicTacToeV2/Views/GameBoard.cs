@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using TicTacToeV2.Controller;
 
 namespace TicTacToeV2.Views
 {
@@ -22,6 +23,9 @@ namespace TicTacToeV2.Views
         static int flag = 0;
         static int defaultValue = 0;
         static int moveCount = 0;
+        private static string player1Name;
+        private static string player2Name;
+        
 
         public static void NewGame(string player1, string player2, int goesFirst)
         {
@@ -29,6 +33,8 @@ namespace TicTacToeV2.Views
             {
                 if (player == 0)
                 {
+                    player1Name = player1;
+                    player2Name = player2;
                     player = goesFirst;
                 }                
                 Console.Clear();
@@ -193,7 +199,7 @@ namespace TicTacToeV2.Views
 
         public static void HelpMenu()
         {
-            HelpPage.DisplayHelpMenu();
+            GameController.GoToHelpPage(player1Name, player2Name, player);
         }
 
         public static void ResetGameBoards()

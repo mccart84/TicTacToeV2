@@ -9,6 +9,10 @@ namespace TicTacToeV2.Controller
 {
     class GameController
     {
+        public static string player1 = "";
+        public static string player2 = "";
+        public static int player = 0;
+
         public static void StartMenuNavigation(int userSelection)
         {
             switch (userSelection)
@@ -73,11 +77,36 @@ namespace TicTacToeV2.Controller
                         QuitGameHelp.QuitGameHelpPage();
                         break;
                     case 4:
+                        SaveGameHelp.SaveGameHelpPage();
                         break;
                     default:
                         break;
                 }
             }
+        }
+
+        public static void NavigateFromHelpPage(int userSelection)
+        {
+            if (userSelection != 0)
+            {
+                switch (userSelection)
+                {
+                    case 1:
+                        HelpPage.DisplayHelpMenu();
+                        break;
+                    case 2:
+                        GameBoard.NewGame(player1, player2, player);
+                        break;
+                }
+            }
+        }
+
+        public static void GoToHelpPage(string player1Name, string player2Name, int playerCount)
+        {
+            player1 = player1Name;
+            player2 = player2Name;
+            player = playerCount;
+            HelpPage.DisplayHelpMenu();
         }
     }
 }
