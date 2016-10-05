@@ -113,7 +113,14 @@ namespace TicTacToeV2.Views
 
             if (flag == 1)
             {
-                Console.WriteLine("Player {0} has won", (player % 2) + 1);
+                var playerVictory = (player%2) + 1;
+                if (playerVictory == 1)
+                {
+                    Console.WriteLine("{0} has won", player1Name);
+                } else if (playerVictory == 2)
+                {
+                    Console.WriteLine("{0} has won", player2Name); 
+                }
                 Console.WriteLine("Press any key to return to the main menu");
                 Console.ReadKey();
                 ResetGameBoards();
