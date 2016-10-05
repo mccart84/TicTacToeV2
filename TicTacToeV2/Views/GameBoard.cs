@@ -91,14 +91,17 @@ namespace TicTacToeV2.Views
                 if (boardSelection == "A")
                 {
                     UserSelection(arrA, choice);
+                    boardSelection = "";
                 }
                 else if (boardSelection == "B")
                 {
                     UserSelection(arrB, choice);
+                    boardSelection = "";
                 }
                 else if (boardSelection == "C")
                 {
                     UserSelection(arrC, choice);
+                    boardSelection = "";
                 }                
 
                 flag = CheckWin();
@@ -129,6 +132,9 @@ namespace TicTacToeV2.Views
             Console.ReadLine();
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         private static void Board()
         {
             string topRow = "     |   |          |   |          |   |   ";
