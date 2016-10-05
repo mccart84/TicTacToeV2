@@ -40,7 +40,7 @@ namespace TicTacToeV2.Views
                 Console.Clear();
                 Console.WriteLine("Enter 'Help' at any time for a list of options.");
                 Console.WriteLine("");
-                Console.WriteLine("{0}:X and {1}:O", player1, player2);
+                Console.WriteLine($"{player1}:X and {player2}:O");
                 Console.WriteLine("\n");
 
                 Console.WriteLine("\n");
